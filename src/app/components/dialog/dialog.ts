@@ -475,7 +475,7 @@ export class Dialog implements AfterContentInit,OnInit,OnDestroy {
             let containerHeight = DomHandler.getOuterHeight(this.container);
             let deltaX = event.pageX - this.lastPageX;
             let deltaY = event.pageY - this.lastPageY;
-            let offset = DomHandler.getOffset(this.container);
+            let offset = this.container.getBoundingClientRect();
             let leftPos = offset.left + deltaX;
             let topPos = offset.top + deltaY;
             let viewport = DomHandler.getViewport();
@@ -546,7 +546,7 @@ export class Dialog implements AfterContentInit,OnInit,OnDestroy {
             let newHeight = containerHeight + deltaY;
             let minWidth = this.container.style.minWidth;
             let minHeight = this.container.style.minHeight;
-            let offset = DomHandler.getOffset(this.container);
+            let offset = this.container.getBoundingClientRect();
             let viewport = DomHandler.getViewport();
             let hasBeenDragged = !parseInt(this.container.style.top) || !parseInt(this.container.style.left);
 
